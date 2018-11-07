@@ -12,17 +12,18 @@ class GildedRose
 
   def update_quality
     @items.each do |item|
-      if @exceptions.include? item.name
-        break if @exceptions[item.name] == :sulfuras
-        item_type = @exceptions[item.name]
-      else
-        item_type = :generic_item
-      end
+      item_type = get_type(item)
+      break if item_type == :sulfuras
       change = send item_type, item.sell_in
       item.sell_in -= 1
       change_quality(item, change)
       limit_quality(item)
     end
+  end
+
+  def get_type(item)
+    return @exceptions[item.name] if @exceptions.include? item.name
+    return :generic_item
   end
 
   def change_quality(item, amount)
