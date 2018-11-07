@@ -6,7 +6,8 @@ class GildedRose
     @items = items
     @exceptions = { "Sulfuras, Hand of Ragnaros" => :sulfuras,
       "Aged Brie" => :aged_brie,
-      "Backstage passes to a TAFKAL80ETC concert" => :backstage_pass
+      "Backstage passes to a TAFKAL80ETC concert" => :backstage_pass,
+      "Conjured item" => :conjured
       }
   end
 
@@ -43,6 +44,10 @@ class GildedRose
     return 2 if sell_in > 5
     return 3 if sell_in > 0
     return -MAXIMUM_QUALITY
+  end
+
+  def conjured(sell_in)
+    return 2 * generic_item(sell_in)
   end
 
   def generic_item(sell_in)
