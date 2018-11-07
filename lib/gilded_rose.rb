@@ -11,6 +11,7 @@ class GildedRose
   def update_quality
     @items.each do |item|
       if @exceptions.include? item.name
+        break if @exceptions[item.name] == :sulfuras
         item_type = @exceptions[item.name]
       else
         item_type = :generic_item
@@ -22,16 +23,12 @@ class GildedRose
     end
   end
 
-  def change_quality(item, multiplier)
-    item.quality += multiplier
+  def change_quality(item, amount)
+    item.quality += amount
   end
 
   def limit_quality(item)
     item.quality = item.quality.clamp(0, 50)
-  end
-
-  def sulfuras(sell_in)
-    exit
   end
 
   def aged_brie(sell_in)
@@ -43,8 +40,7 @@ class GildedRose
     return 1 if sell_in > 10
     return 2 if sell_in > 5
     return 3 if sell_in > 0
-    item.quality = 0
-    exit
+    return -50
   end
 
   def generic_item(sell_in)
