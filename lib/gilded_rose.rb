@@ -1,4 +1,6 @@
 class GildedRose
+  MAXIMUM_QUALITY = 50
+  MINIMUM_QUALITY = 0
 
   def initialize(items)
     @items = items
@@ -28,19 +30,18 @@ class GildedRose
   end
 
   def limit_quality(item)
-    item.quality = item.quality.clamp(0, 50)
+    item.quality = item.quality.clamp(MINIMUM_QUALITY, MAXIMUM_QUALITY)
   end
 
   def aged_brie(sell_in)
-    return 1 if sell_in > 0
-    return 2
+    return - generic_item(sell_in)
   end
 
   def backstage_pass(sell_in)
     return 1 if sell_in > 10
     return 2 if sell_in > 5
     return 3 if sell_in > 0
-    return -50
+    return -MAXIMUM_QUALITY
   end
 
   def generic_item(sell_in)
