@@ -1,6 +1,6 @@
 # Gilded Rose Project
 
-To view the source material for this project please refer to https://github.com/makersacademy/gilded_rose_design_project or the following commit in this repo: [a048f3]https://github.com/Vaent/gilded-rose/tree/a048f373f5818ae33f3c6e96c404f35709092b1d
+To view the source material for this project please refer to https://github.com/makersacademy/gilded_rose_design_project or the following commit in this repo: [a048f3](https://github.com/Vaent/gilded-rose/tree/a048f373f5818ae33f3c6e96c404f35709092b1d)
 
 ## Background
 

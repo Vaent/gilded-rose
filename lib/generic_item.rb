@@ -9,6 +9,8 @@ class GenericItem<Item
     apply_decay(decay_amount)
   end
 
+  private
+
   def get_decay_amount
     self.class::DECAY_RATE * (past_sell_in? ? 2 : 1)
   end

@@ -6,6 +6,8 @@ class BackstagePass<GenericItem
     apply_decay(decay_amount)
   end
 
+  private
+
   def get_decay_amount
     return 1 if sell_in > 10
     return 2 if sell_in > 5
